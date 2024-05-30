@@ -24,7 +24,11 @@ const routes: Routes = [
     path: 'requests', component: RequestsComponent, pathMatch: 'full'
   },
   {
-    path: 'kunden/:id', component: KundenDetailComponent, pathMatch: 'full'
+    path: 'kunde/:id', component: KundenDetailComponent, pathMatch: 'full'
+  },
+  {
+    path: 'kunde', component: KundenDetailComponent, pathMatch: 'full'
+  
   }
 ];
 

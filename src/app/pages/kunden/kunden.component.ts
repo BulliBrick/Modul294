@@ -46,36 +46,33 @@ export class KundenComponent {
   delete(e: Kunden) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       maxWidth: '400px',
-      data: {
-        title: 'dialogs.title_delete',
-        message: 'dialogs.message_delete'
-      }
+
     });
+
     dialogRef.afterClosed().subscribe(dialogResult => {
       if (dialogResult === true) {
-        if (e.id !== undefined) {
-          this.kundenService.delete(e.id).subscribe({
-            next: response => {
-              if (response.status === 200) {
-                this.snackBar.open("Deleted", "Closed", {duration: 5000});
-                this.reloadData();
-              } else {
-                this.snackBar.open("Delete Error", "Closed", {duration: 5000});
-              }
-            },
-            error: () => this.snackBar.open("Delete Error", "Closed", {duration: 5000})
-          });
-        }
+        if (e.id === undefined) return;
+        this.kundenService.delete(e.id).subscribe({
+          next: (response: any) => {
+            if (response.statusText === 'OK') {
+              this.snackBar.open('Item deleted!', 'Close', { duration: 5000 });
+              this.reloadData();
+            } else {
+              this.snackBar.open('Item could not be deleted, server error!', 'Close', { duration: 5000 });
+            }
+          },
+          error: () => this.snackBar.open('Item could not be deleted, server error!', 'Close', { duration: 5000 })
+        });
       }
     });
   }
 
     async add() {
-      await this.router.navigate(['kunden']);
+      await this.router.navigate(['kunde']);
     }
 
     async edit(e: Kunden) {
-      await this.router.navigate(['kunden', e.id]);
+      await this.router.navigate(['kunde', e.id]);
     }
 
 }

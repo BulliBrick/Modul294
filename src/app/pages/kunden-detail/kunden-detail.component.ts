@@ -16,28 +16,28 @@ import { KundenService } from '../../service/kunden.service';
 export class KundenDetailComponent extends BaseComponent implements OnInit{
  
   kunden = new Kunden();
-  public objForm = new UntypedFormGroup({
+  public kundenForm = new UntypedFormGroup({
+    kundennummer: new UntypedFormControl(''),
+    vorname: new UntypedFormControl(''),
     name: new UntypedFormControl(''),
-  });
 
+  });
   constructor(private router: Router, private headerService: HeaderService, private route: ActivatedRoute,
               private snackBar: MatSnackBar, protected override translate: TranslateService, private formBuilder: UntypedFormBuilder,
               private kundenService: KundenService) {
     super(translate);
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     if (this.route.snapshot.paramMap.get('id') !== null) {
       const id = Number.parseInt(this.route.snapshot.paramMap.get('id') as string);
 
       this.kundenService.getOne(id).subscribe(obj => {
         this.kunden = obj;
-        this.headerService.setPage('nav.vehicle_edit');
-        this.objForm = this.formBuilder.group(obj);
+        this.kundenForm = this.formBuilder.group(obj);
       });
     } else {
-      this.headerService.setPage('nav.vehicle_new');
-      this.objForm = this.formBuilder.group(this.kunden);
+      this.kundenForm = this.formBuilder.group(this.kunden);
     }
   }
 

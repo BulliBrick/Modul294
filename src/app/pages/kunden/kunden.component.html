@@ -2,6 +2,17 @@
 
 <div class="content">
     <div>
+
+        <div class="table-header">
+            <mat-toolbar color="secondary">
+              <span>
+                <button (click)="add()" color="secondary" mat-button >
+                  <mat-icon>add</mat-icon>
+                  Add
+                </button>
+              </span>
+            </mat-toolbar>
+          </div>
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
           <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef>id</th>
