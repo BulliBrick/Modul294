@@ -1,0 +1,24 @@
+.content {
+    grid-area: content;
+    max-width: 1000px;
+    margin: 0 auto;
+
+  }
+
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    min-width: 100px;
+}
+
+button {
+    margin:10px; 
+    min-width: 92px;
+  }
+  
+body {
+    margin: 0 auto;
+}

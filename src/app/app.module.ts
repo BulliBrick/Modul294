@@ -24,14 +24,17 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { HttpXSRFInterceptor } from './interceptor/http.csrf.interceptor';
 import { MatToolbarModule } from '@angular/material/toolbar'; // Import MatToolbarModule
+import { AppAuthService } from './service/app.auth.service';
+import { MatDialogModule } from '@angular/material/dialog'; // Import MatDialogModule
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 
 export const authConfig: AuthConfig = {
-  issuer: 'http://localhost:8080/realms/ILV',
+  issuer: 'http://localhost:8080/realms/M295',
   requireHttps: false,
   redirectUri: 'http://localhost:4200', 
   postLogoutRedirectUri: 'http://localhost:4200',
-  clientId: 'demoapp',
+  clientId: 'kundenverwaltung',
   scope: 'openid profile roles offline_access',
   responseType: 'code',
   showDebugInformation: true,
@@ -57,7 +60,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     KundenComponent,
     AuftragComponent,
     RequestsComponent,
-    LoginComponent
+    LoginComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +84,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       }
     }),
     MatToolbarModule,
+    MatDialogModule,
     
   ],
   providers: [
@@ -93,4 +98,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(authService: AppAuthService) {
+    authService.initAuth().finally();
+  }
+}
