@@ -22,3 +22,30 @@ button {
 body {
     margin: 0 auto;
 }
+ng-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 300px;
+}
+
+td span{
+    text-align: center;
+    width: 30px;
+}
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+td {
+
+    text-align: center;
+    width: 300px;
+}
+th {
+    padding: 10px;
+    text-align: center;
+}

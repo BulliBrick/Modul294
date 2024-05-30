@@ -48,6 +48,7 @@
                   "maximumWarning": "500kb",
                   "maximumError": "1mb"
                 },
+                
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
@@ -69,6 +70,7 @@
           "configurations": {
             "production": {
               "buildTarget": "Modul294:build:production"
+              
             },
             "development": {
               "buildTarget": "Modul294:build:development"

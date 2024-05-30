@@ -27,6 +27,7 @@ import { MatToolbarModule } from '@angular/material/toolbar'; // Import MatToolb
 import { AppAuthService } from './service/app.auth.service';
 import { MatDialogModule } from '@angular/material/dialog'; // Import MatDialogModule
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { KundenDetailComponent } from './pages/kunden-detail/kunden-detail.component';
 
 
 export const authConfig: AuthConfig = {
@@ -62,6 +63,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     RequestsComponent,
     LoginComponent,
     ConfirmDialogComponent,
+    KundenDetailComponent,
   ],
   imports: [
     BrowserModule,

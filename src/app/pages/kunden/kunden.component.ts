@@ -16,7 +16,7 @@ export class KundenComponent {
 
 
   dataSource: Kunden[] = [];
-  displayedColumns: string[] = ['id','kundennummer' ,'vorname', 'name'];
+  displayedColumns: string[] = ['id','kundennummer' ,'vorname', 'name', 'actions'];
 
   kunden = new Kunden();
   public kundenForm = new UntypedFormGroup({
