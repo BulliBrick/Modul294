@@ -42,39 +42,4 @@
           </ng-container>
         </table>
       </div>
-      <div style="padding-top: 30px">
-        <form
-          (ngSubmit)="save(kundenForm.value)"
-          [formGroup]="kundenForm!"
-          class="app-form"
-        >
-          <mat-form-field>
-            <mat-label>Name</mat-label>
-            <input
-              formControlName="name"
-              matInput
-              maxlength="255"
-              required
-            />
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Age</mat-label>
-            <input
-              formControlName="age"
-              matInput
-              pattern="^\d*(\.\d{0,2})?$"
-              required
-            />
-          </mat-form-field>
-          <button
-            [disabled]="!kundenForm.valid"
-            color="primary"
-            mat-raised-button
-            style="width: 200px"
-            class="savebtn"
-          >
-          <mat-icon>save</mat-icon>Save
-              </button>
-        </form>
-      </div>
-    </div>
+</div>

@@ -35,10 +35,7 @@ td span{
     text-align: center;
     width: 30px;
 }
-.action-buttons {
-    display: flex;
-    justify-content: space-between;
-  }
+
 
 td {
 

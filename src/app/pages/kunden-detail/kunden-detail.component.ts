@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, UntypedFormControl, UntypedFormBuilder } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { async } from 'rxjs';
-import { Kunden } from '../../data/kunden';
 import { BaseComponent } from '../../components/base/base.component';
+import { Kunden } from '../../data/kunden';
 import { HeaderService } from '../../service/header.service';
 import { KundenService } from '../../service/kunden.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-kunden-detail',

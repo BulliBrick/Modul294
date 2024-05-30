@@ -48,7 +48,6 @@
                   "maximumWarning": "500kb",
                   "maximumError": "1mb"
                 },
-                
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
@@ -76,7 +75,6 @@
           "configurations": {
             "production": {
               "buildTarget": "Modul294:build:production"
-              
             },
             "development": {
               "buildTarget": "Modul294:build:development"
@@ -108,11 +106,23 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

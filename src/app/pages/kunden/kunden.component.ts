@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
-import { Kunden } from '../../data/kunden';
-import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
+import { Component } from '@angular/core';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { async } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
+import { Kunden } from '../../data/kunden';
 import { KundenService } from '../../service/kunden.service';
 
 @Component({
@@ -34,7 +33,7 @@ export class KundenComponent {
   async save(formData: any) {
     this.kunden = Object.assign(formData);
 
-    this.httpClient.post('http://localhost:9090/api/kunden', this.kunden).subscribe(result => {
+    this.httpClient.post('http://localhost:9090/api/kunden', this.kunden).subscribe(() => {
       this.reloadData();
     });
   }
