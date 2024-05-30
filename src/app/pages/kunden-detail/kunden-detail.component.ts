@@ -7,6 +7,7 @@ import { Kunden } from '../../data/kunden';
 import { BaseComponent } from '../../components/base/base.component';
 import { HeaderService } from '../../service/header.service';
 import { KundenService } from '../../service/kunden.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-kunden-detail',
@@ -22,7 +23,7 @@ export class KundenDetailComponent extends BaseComponent implements OnInit{
 
   constructor(private router: Router, private headerService: HeaderService, private route: ActivatedRoute,
               private snackBar: MatSnackBar, protected override translate: TranslateService, private formBuilder: UntypedFormBuilder,
-              private departmentService: KundenService) {
+              private kundenService: KundenService) {
     super(translate);
   }
 
@@ -30,7 +31,7 @@ export class KundenDetailComponent extends BaseComponent implements OnInit{
     if (this.route.snapshot.paramMap.get('id') !== null) {
       const id = Number.parseInt(this.route.snapshot.paramMap.get('id') as string);
 
-      this.departmentService.getOne(id).subscribe(obj => {
+      this.kundenService.getOne(id).subscribe(obj => {
         this.kunden = obj;
         this.headerService.setPage('nav.vehicle_edit');
         this.objForm = this.formBuilder.group(obj);
@@ -42,14 +43,14 @@ export class KundenDetailComponent extends BaseComponent implements OnInit{
   }
 
   async back() {
-    await this.router.navigate(['departments']);
+    await this.router.navigate(['kunden']);
   }
 
   async save(formData: any) {
     this.kunden = Object.assign(formData);
 
     if (this.kunden.id) {
-      this.departmentService.update(this.kunden).subscribe({
+      this.kundenService.update(this.kunden).subscribe({
         next: () => {
           this.snackBar.open(this.messageSaved, this.messageClose, {duration: 5000});
           this.back();
@@ -59,7 +60,7 @@ export class KundenDetailComponent extends BaseComponent implements OnInit{
         }
       });
     } else {
-      this.departmentService.save(this.department).subscribe({
+      this.kundenService.save(this.kunden).subscribe({
         next: () => {
           this.snackBar.open(this.messageNewSaved, this.messageClose, {duration: 5000});
           this.back();

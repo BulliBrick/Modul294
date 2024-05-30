@@ -98,4 +98,7 @@ export class AppAuthService {
       }
     }
   }
+  isLoggedIn() {
+    return this.oauthService.hasValidAccessToken();
+}
 }

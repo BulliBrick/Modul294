@@ -1,0 +1,29 @@
+<mat-toolbar>
+    <span>
+      Kundenverwaltung
+    </span>
+    <span class="nav">
+      <button mat-button [routerLink]="['']"><mat-icon>home</mat-icon>Home</button>
+      <button mat-button [routerLink]="['kunden']">Kunden</button>
+      <button mat-button [routerLink]="['auftrag']">Auftrag</button>
+      <button mat-button [routerLink]="['requests']">Anfragen</button>
+    </span>
+    <span>
+      <div *ngIf="isLoggedIn(); else loginTemplate">
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>account_circle</mat-icon>
+          {{ username | uppercase}}
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </div>
+      <ng-template #loginTemplate>
+        <!--<a mat-button routerLink="/login">Login</a>-->
+        <button mat-button (click)="login()">Login</button>
+      </ng-template>
+    </span>
+  </mat-toolbar>

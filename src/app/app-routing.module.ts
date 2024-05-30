@@ -5,6 +5,7 @@ import { KundenverwaltungComponent } from './pages/kundenverwaltung/kundenverwal
 import { LoginComponent } from './login/login.component';
 import { AuftragComponent } from './pages/auftrag/auftrag.component';
 import { RequestsComponent } from './pages/requests/requests.component';
+import { KundenDetailComponent } from './pages/kunden-detail/kunden-detail.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,9 @@ const routes: Routes = [
   },
   {
     path: 'requests', component: RequestsComponent, pathMatch: 'full'
+  },
+  {
+    path: 'kunden/:id', component: KundenDetailComponent, pathMatch: 'full'
   }
 ];
 

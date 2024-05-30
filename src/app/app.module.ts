@@ -28,7 +28,9 @@ import { AppAuthService } from './service/app.auth.service';
 import { MatDialogModule } from '@angular/material/dialog'; // Import MatDialogModule
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { KundenDetailComponent } from './pages/kunden-detail/kunden-detail.component';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NavbarComponent } from './components/navbar/navbar.component'; // Import MatSnackBarModule
+import { MatMenuModule } from '@angular/material/menu'; // Import MatMenuModule
 
 export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/realms/M295',
@@ -64,6 +66,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     LoginComponent,
     ConfirmDialogComponent,
     KundenDetailComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,6 +90,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     }),
     MatToolbarModule,
     MatDialogModule,
+    MatSnackBarModule,
+    MatMenuModule,
+    
+    
     
   ],
   providers: [

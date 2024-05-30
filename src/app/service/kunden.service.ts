@@ -22,12 +22,12 @@ export class KundenService {
     return this.http.get<Kunden>(environment.backendBaseUrl + this.backendUrl + `/${id}`);
   }
 
-  public update(department: Kunden): Observable<Kunden> {
-    return this.http.put<Kunden>(environment.backendBaseUrl + this.backendUrl + `/${department.id}`, department);
+  public update(kunden: Kunden): Observable<Kunden> {
+    return this.http.put<Kunden>(environment.backendBaseUrl + this.backendUrl + `/${kunden.id}`, kunden);
   }
 
-  public save(department: Kunden): Observable<Kunden> {
-    return this.http.post<Kunden>(environment.backendBaseUrl + this.backendUrl, department);
+  public save(kunden: Kunden): Observable<Kunden> {
+    return this.http.post<Kunden>(environment.backendBaseUrl + this.backendUrl, kunden);
   }
 
   public delete(id: number): Observable<HttpResponse<string>> {

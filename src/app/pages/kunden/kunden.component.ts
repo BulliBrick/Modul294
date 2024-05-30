@@ -6,6 +6,8 @@ import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { async } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { KundenService } from '../../service/kunden.service';
 
 @Component({
   selector: 'app-kunden',
@@ -25,7 +27,7 @@ export class KundenComponent {
   });
 
 
-  public constructor(private httpClient: HttpClient, private dialog: MatDialog, private router: Router) {
+  public constructor(private httpClient: HttpClient, private dialog: MatDialog, private router: Router, private kundenService: KundenService, private snackBar: MatSnackBar) {
     this.reloadData();
   }
 
@@ -48,6 +50,23 @@ export class KundenComponent {
       data: {
         title: 'dialogs.title_delete',
         message: 'dialogs.message_delete'
+      }
+    });
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult === true) {
+        if (e.id !== undefined) {
+          this.kundenService.delete(e.id).subscribe({
+            next: response => {
+              if (response.status === 200) {
+                this.snackBar.open("Deleted", "Closed", {duration: 5000});
+                this.reloadData();
+              } else {
+                this.snackBar.open("Delete Error", "Closed", {duration: 5000});
+              }
+            },
+            error: () => this.snackBar.open("Delete Error", "Closed", {duration: 5000})
+          });
+        }
       }
     });
   }
