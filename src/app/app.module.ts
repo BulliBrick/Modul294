@@ -7,7 +7,7 @@ import { KundenverwaltungComponent } from './pages/kundenverwaltung/kundenverwal
 import { KundenComponent } from './pages/kunden/kunden.component';
 import { AuftragComponent } from './pages/auftrag/auftrag.component';
 import { RequestsComponent } from './pages/requests/requests.component';
-import { LoginComponent } from './pages/login/login.component';
+import { LoginComponent } from './login/login.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
@@ -23,6 +23,7 @@ import { HttpClient } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { HttpXSRFInterceptor } from './interceptor/http.csrf.interceptor';
+import { MatToolbarModule } from '@angular/material/toolbar'; // Import MatToolbarModule
 
 
 export const authConfig: AuthConfig = {
@@ -78,6 +79,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    MatToolbarModule,
     
   ],
   providers: [

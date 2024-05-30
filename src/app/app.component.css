@@ -1,0 +1,38 @@
+body{
+    background-color: #f8f9fa;
+    font-family: 'Roboto', sans-serif;
+    margin: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #343a40;
+  }
+
+.nav{
+    display: flex;
+    position: absolute;
+    left: 50%;
+    align-items: center;
+    transform: translateX(-50%);
+}
+
+
+span{
+    color: white;
+    font-size: 20px;
+}
+span button{
+    
+    color: white;
+    background-color: #343a40;
+}
+span button:hover{
+    cursor: pointer;
+    color: #343a40;
+    background-color: white;
+}
+

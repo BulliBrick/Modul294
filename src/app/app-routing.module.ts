@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { KundenComponent } from './pages/kunden/kunden.component';
 import { KundenverwaltungComponent } from './pages/kundenverwaltung/kundenverwaltung.component';
-import { LoginComponent } from './pages/login/login.component';
+import { LoginComponent } from './login/login.component';
 import { AuftragComponent } from './pages/auftrag/auftrag.component';
 import { RequestsComponent } from './pages/requests/requests.component';
 
