@@ -21,11 +21,11 @@ export const appCanActivate: CanActivateFn = (
   if (oauthService.hasValidAccessToken()) {
     const hasRoles = checkRoles(route, userRoles);
     if (!hasRoles) {
-      return router.parseUrl('/noaccess');
+      return router.parseUrl('/login?noaccess=true');
     }
     return hasRoles;
   }
-  return router.parseUrl('/noaccess');
+  return router.parseUrl('/login');
 };
 
 function checkRoles(route: ActivatedRouteSnapshot, userRoles: string[]): boolean {

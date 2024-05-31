@@ -19,7 +19,7 @@ export class KundenDetailComponent extends BaseComponent implements OnInit{
   public kundenForm = new UntypedFormGroup({
     kundennummer: new UntypedFormControl(''),
     vorname: new UntypedFormControl(''),
-    name: new UntypedFormControl(''),
+    name: new UntypedFormControl('')
 
   });
   constructor(private router: Router, private headerService: HeaderService, private route: ActivatedRoute,
