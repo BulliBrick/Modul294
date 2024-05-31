@@ -20,7 +20,7 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'auftrag', component: AuftragComponent, pathMatch: 'full',canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+    path: 'auftrag', component: AuftragComponent, pathMatch: 'full',canActivate: [appCanActivate], data: {roles: [AppRoles.Admin, AppRoles.User]}
   },
   {
     path: 'requests', component: RequestsComponent, pathMatch: 'full'
@@ -30,10 +30,9 @@ const routes: Routes = [
   },
   {
     path: 'kunde', component: KundenDetailComponent, pathMatch: 'full' ,canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
-  
-  
   }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

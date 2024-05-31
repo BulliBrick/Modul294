@@ -1,6 +1,6 @@
 export class Kunden {
-    id?: number;
-    kundennummer? :number;
-    vorname?: string;
-    name?: string;    
+    id!: number;
+    kundennummer=0;
+    vorname='';
+    name='';    
   }

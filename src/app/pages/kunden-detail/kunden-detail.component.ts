@@ -5,7 +5,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { BaseComponent } from '../../components/base/base.component';
 import { Kunden } from '../../data/kunden';
-import { HeaderService } from '../../service/header.service';
 import { KundenService } from '../../service/kunden.service';
 
 @Component({
@@ -15,20 +14,24 @@ import { KundenService } from '../../service/kunden.service';
 })
 export class KundenDetailComponent extends BaseComponent implements OnInit{
  
-  kunden = new Kunden();
+
+
+
+  kunden:Kunden = new Kunden();
+
   public kundenForm = new UntypedFormGroup({
     kundennummer: new UntypedFormControl(''),
     vorname: new UntypedFormControl(''),
     name: new UntypedFormControl('')
 
   });
-  constructor(private router: Router, private headerService: HeaderService, private route: ActivatedRoute,
+  constructor(private router: Router, private route: ActivatedRoute,
               private snackBar: MatSnackBar, protected override translate: TranslateService, private formBuilder: UntypedFormBuilder,
               private kundenService: KundenService) {
     super(translate);
   }
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     if (this.route.snapshot.paramMap.get('id') !== null) {
       const id = Number.parseInt(this.route.snapshot.paramMap.get('id') as string);
 

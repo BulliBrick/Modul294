@@ -30,7 +30,10 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 import { KundenDetailComponent } from './pages/kunden-detail/kunden-detail.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NavbarComponent } from './components/navbar/navbar.component'; // Import MatSnackBarModule
-import { MatMenuModule } from '@angular/material/menu'; // Import MatMenuModule
+import { MatMenuModule } from '@angular/material/menu';
+import { KundenserviceComponent } from './pages/kundenservice/kundenservice.component';
+import { AuftragDetailComponent } from './pages/auftrag-detail/auftrag-detail.component';
+import { RequestsDetailComponent } from './pages/requests-detail/requests-detail.component'; // Import MatMenuModule
 
 export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/realms/M295',
@@ -67,6 +70,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ConfirmDialogComponent,
     KundenDetailComponent,
     NavbarComponent,
+    KundenserviceComponent,
+    AuftragDetailComponent,
+    RequestsDetailComponent,
   ],
   imports: [
     BrowserModule,
