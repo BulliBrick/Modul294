@@ -1,1 +1,45 @@
-<p>auftrag-detail works!</p>
+<div>
+    <h2 style="text-align: center;padding: 20px;" class="mat-elevation-z8 ">New / Edit Kunde</h2>
+    <div>
+      <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <span class="toolbar-spacer"></span>
+          <button (click)="back()" color="primary" mat-button style="color: white">
+            <mat-icon>arrow_back_ios</mat-icon>
+            Back
+          </button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </div>
+    <div class="spacer"> </div>
+  
+    <div class="placeholder">
+        <p>This feature is not fully implementet!</p>
+      </div>
+  
+    <div class="app-form" style="padding-top: 30px">
+      <form (ngSubmit)="save(kundenserviceForm.value)" [formGroup]="kundenserviceForm!" class="app-form">
+    
+        <mat-form-field>
+            <mat-label>Kunden ID</mat-label>
+            <input formControlName="kundenId" matInput appAutofocus #input maxlength="255" />
+            <mat-hint align="end">{{input.value.length}}/255</mat-hint>
+          </mat-form-field>
+        <mat-form-field>
+            <mat-label>Status</mat-label>
+            <input formControlName="auftragsstatus" matInput  appAutofocus #input maxlength="255" required />
+            <mat-hint align="end">{{input.value.length}}/255</mat-hint>
+          </mat-form-field>
+        <mat-form-field>
+            <mat-label>bestellung</mat-label>
+            <input formControlName="bestellung" matInput appAutofocus #input maxlength="255" required />
+            <mat-hint align="end">{{input.value.length}}/255</mat-hint>
+          </mat-form-field>
+        <button [disabled]="!kundenserviceForm.valid" color="primary" mat-raised-button style="width: 200px">
+          <mat-icon>save</mat-icon>
+          Save
+        </button>
+      </form>
+    </div>
+  
+  </div>

@@ -11,6 +11,7 @@ import { appCanActivate } from './guard/app.auth.guard';
 import { KundenserviceComponent } from './pages/kundenservice/kundenservice.component';
 import { KundenserviceDetailComponent } from './pages/kundenservice-detail/kundenservice-detail.component';
 import { RequestsDetailComponent } from './pages/requests-detail/requests-detail.component';
+import { AuftragDetailComponent } from './pages/auftrag-detail/auftrag-detail.component';
 
 const routes: Routes = [
   {
@@ -23,7 +24,7 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'auftrag', component: AuftragComponent, pathMatch: 'full',canActivate: [appCanActivate], data: {roles: [AppRoles.Admin, AppRoles.Read]}
+    path: 'auftrage', component: AuftragComponent, pathMatch: 'full',canActivate: [appCanActivate], data: {roles: [AppRoles.Admin, AppRoles.Read]}
   },
   {
     path: 'services', component: KundenserviceComponent, pathMatch: 'full',canActivate: [appCanActivate], data: {roles: [AppRoles.Admin, AppRoles.Read]}
@@ -48,8 +49,14 @@ const routes: Routes = [
   },
   {
     path: 'kunde', component: KundenDetailComponent, pathMatch: 'full' ,canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+  },
+  {
+    path: 'auftrag', component: AuftragDetailComponent, pathMatch: 'full',canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+  },
+  {
+    path: 'auftrag/:id', component: AuftragDetailComponent, pathMatch: 'full',canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
   }
-];
+  ];
 
 
 @NgModule({
