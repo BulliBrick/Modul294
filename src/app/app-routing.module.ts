@@ -8,6 +8,9 @@ import { RequestsComponent } from './pages/requests/requests.component';
 import { KundenDetailComponent } from './pages/kunden-detail/kunden-detail.component';
 import { AppRoles } from './app.roles';
 import { appCanActivate } from './guard/app.auth.guard';
+import { KundenserviceComponent } from './pages/kundenservice/kundenservice.component';
+import { KundenserviceDetailComponent } from './pages/kundenservice-detail/kundenservice-detail.component';
+import { RequestsDetailComponent } from './pages/requests-detail/requests-detail.component';
 
 const routes: Routes = [
   {
@@ -20,10 +23,25 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'auftrag', component: AuftragComponent, pathMatch: 'full',canActivate: [appCanActivate], data: {roles: [AppRoles.Admin, AppRoles.User]}
+    path: 'auftrag', component: AuftragComponent, pathMatch: 'full',canActivate: [appCanActivate], data: {roles: [AppRoles.Admin, AppRoles.Read]}
+  },
+  {
+    path: 'services', component: KundenserviceComponent, pathMatch: 'full',canActivate: [appCanActivate], data: {roles: [AppRoles.Admin, AppRoles.Read]}
+  },
+  {
+    path: 'service', component: KundenserviceDetailComponent, pathMatch: 'full',canActivate: [appCanActivate], data: {roles: [AppRoles.Admin, AppRoles.Read]}
+  },
+  {
+    path: 'service/:id', component: KundenserviceDetailComponent, pathMatch: 'full',canActivate: [appCanActivate], data: {roles: [AppRoles.Admin, AppRoles.Read]}
   },
   {
     path: 'requests', component: RequestsComponent, pathMatch: 'full'
+  },
+  {
+    path: 'request', component: RequestsDetailComponent, pathMatch: 'full'
+  },
+  {
+    path: 'request/:id', component: RequestsDetailComponent, pathMatch: 'full'
   },
   {
     path: 'kunde/:id', component: KundenDetailComponent, pathMatch: 'full',canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
